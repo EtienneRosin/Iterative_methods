@@ -3,6 +3,7 @@
 
 #include "jacobi_mpi.hpp"
 
+
 JacobiMPI::JacobiMPI(
         int Nx, int Ny, double x_min, double x_max, double y_min, double y_max,
         OneVarFuncPtr left_condition_func, OneVarFuncPtr right_condition_func,
@@ -222,7 +223,6 @@ void JacobiMPI::Solve(int max_iterations, double epsilon, bool verbose) {
                 std::cout << "Converged after " << l << " iterations, last residual : " << r_ << "\n";
                 last_l_ = l;
                 converged = true;
-                // break;
             }
         }
         // Every process check if the algorithm converged
