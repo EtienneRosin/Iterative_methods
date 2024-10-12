@@ -72,8 +72,8 @@ public:
         int Nx, int Ny, double x_min, double x_max, double y_min, double y_max,
         OneVarFuncPtr left_condition_func, OneVarFuncPtr right_condition_func,
         OneVarFuncPtr top_condition_func, OneVarFuncPtr bottom_condition_func,
-        TwoVarsFuncPrt source_func, TwoVarsFuncPrt init_guess_func,
-        TwoVarsFuncPrt exact_sol_func = nullptr, bool verbose = false);
+        TwoVarsFuncPtr source_func, TwoVarsFuncPtr init_guess_func,
+        TwoVarsFuncPtr exact_sol_func = nullptr, bool verbose = false);
 
     // Methods ----------------------------------------------------------------
     /*!
@@ -90,8 +90,8 @@ public:
     void InitializeLocalProblem(
         OneVarFuncPtr left_condition_func, OneVarFuncPtr right_condition_func,
         OneVarFuncPtr top_condition_func, OneVarFuncPtr bottom_condition_func,
-        TwoVarsFuncPrt source_func, TwoVarsFuncPrt init_guess_func,
-        TwoVarsFuncPrt exact_sol_func = nullptr);
+        TwoVarsFuncPtr source_func, TwoVarsFuncPtr init_guess_func,
+        TwoVarsFuncPtr exact_sol_func = nullptr);
 
     /*!
       \brief Get the linear index associated to (i,j)

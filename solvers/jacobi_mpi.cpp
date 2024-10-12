@@ -3,13 +3,15 @@
 
 #include "jacobi_mpi.hpp"
 
+using OneVarFuncPtr = utils::OneVarFuncPtr;
+using TwoVarsFuncPtr = utils::TwoVarsFuncPtr;
 
 JacobiMPI::JacobiMPI(
         int Nx, int Ny, double x_min, double x_max, double y_min, double y_max,
         OneVarFuncPtr left_condition_func, OneVarFuncPtr right_condition_func,
         OneVarFuncPtr top_condition_func, OneVarFuncPtr bottom_condition_func,
-        TwoVarsFuncPrt source_func, TwoVarsFuncPrt init_guess_func,
-        TwoVarsFuncPrt exact_sol_func, bool verbose) 
+        TwoVarsFuncPtr source_func, TwoVarsFuncPtr init_guess_func,
+        TwoVarsFuncPtr exact_sol_func, bool verbose) 
         : Nx_(Nx), Ny_(Ny), 
         x_min_(x_min), x_max_(x_max), 
         y_min_(y_min), y_max_(y_max), 
@@ -105,8 +107,8 @@ void JacobiMPI::CheckMPIError(int errCode, const std::string& errMsg) {
 void JacobiMPI::InitializeLocalProblem(
     OneVarFuncPtr left_condition_func, OneVarFuncPtr right_condition_func,
     OneVarFuncPtr top_condition_func, OneVarFuncPtr bottom_condition_func,
-    TwoVarsFuncPrt source_func, TwoVarsFuncPrt init_guess_func,
-    TwoVarsFuncPrt exact_sol_func) {
+    TwoVarsFuncPtr source_func, TwoVarsFuncPtr init_guess_func,
+    TwoVarsFuncPtr exact_sol_func) {
     for (int i = 0; i <= Nx_ + 1; i++) {
         double x = x_min_ + i * dx_;
         if (process_rank_ == 0){    // top and bottom boundary condition of the global sol

@@ -26,14 +26,9 @@ void run_jacobi_mpi_test(int max_iterations, double tolerance) {
     MPI_Comm_rank(MPI_COMM_WORLD, &rank); 
     MPI_Comm_size(MPI_COMM_WORLD, &num_processes);
 
-    MPI_Barrier(MPI_COMM_WORLD); // Synchronisation avant le chronométrage
+    MPI_Barrier(MPI_COMM_WORLD);
     auto start = std::chrono::high_resolution_clock::now();
     int num_y = num_processes * (Ny + 2) - 2;
-    // std::cout << "num_y = " << num_y << "\n";
-
-    // if (rank == 0){
-    //     std::cout << "P = " << num_processes << ", (n_x + 2)*(n_y + 2) = " << (Nx + 2) * (Ny + 2) << ", (n_x + 2)*(new_n_y + 2) = " << (num_y + 2) * (Nx + 2) << "\n";
-    // }
 
     JacobiMPI jac_mpi(
         Nx, num_y, x_min, x_max, y_min, y_max,

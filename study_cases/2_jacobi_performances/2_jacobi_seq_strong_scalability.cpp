@@ -15,8 +15,6 @@ void run_jacobi_seq_test(int max_iterations, double tolerance) {
         dirichlet_condition, dirichlet_condition, 
         dirichlet_condition, dirichlet_condition, 
         laplacien_sin_sin, constant, sin_sin, false);
-    
-
 
     jac_seq.Solve(max_iterations, tolerance);
 
