@@ -1,0 +1,9 @@
+/Users/etienne/Documents/Developer/Iterative_methods/build/CMakeFiles/main.dir
+/Users/etienne/Documents/Developer/Iterative_methods/build/CMakeFiles/1_jacobi_seq_asymptotic_accuracy.dir
+/Users/etienne/Documents/Developer/Iterative_methods/build/CMakeFiles/2_jacobi_mpi_strong_scalability.dir
+/Users/etienne/Documents/Developer/Iterative_methods/build/CMakeFiles/2_jacobi_seq_strong_scalability.dir
+/Users/etienne/Documents/Developer/Iterative_methods/build/CMakeFiles/run_jacobi_strong_scalability_measurements.dir
+/Users/etienne/Documents/Developer/Iterative_methods/build/CMakeFiles/2_jacobi_weak_scalability.dir
+/Users/etienne/Documents/Developer/Iterative_methods/build/CMakeFiles/run_jacobi_weak_scalability_measurements.dir
+/Users/etienne/Documents/Developer/Iterative_methods/build/CMakeFiles/edit_cache.dir
+/Users/etienne/Documents/Developer/Iterative_methods/build/CMakeFiles/rebuild_cache.dir

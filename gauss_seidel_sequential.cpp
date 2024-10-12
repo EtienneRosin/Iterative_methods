@@ -312,7 +312,7 @@ int main() {
 
     // Mesurer le temps de la méthode Solve
     auto start_solve = std::chrono::high_resolution_clock::now();
-    gauss_seidel_seq.Solve(20000, 1e-6);
+    gauss_seidel_seq.Solve(20000, 1e-10);
     auto end_solve = std::chrono::high_resolution_clock::now();
     
     std::chrono::duration<double> elapsed_solve = end_solve - start_solve;

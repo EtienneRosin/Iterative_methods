@@ -1,0 +1,92 @@
+[
+{
+  "directory": "/Users/etienne/Documents/Developer/Iterative_methods/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/etienne/Documents/Developer/Iterative_methods/solvers -isystem /opt/homebrew/Cellar/open-mpi/5.0.5/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -O2 -o CMakeFiles/main.dir/main.cpp.o -c /Users/etienne/Documents/Developer/Iterative_methods/main.cpp",
+  "file": "/Users/etienne/Documents/Developer/Iterative_methods/main.cpp",
+  "output": "CMakeFiles/main.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/etienne/Documents/Developer/Iterative_methods/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/etienne/Documents/Developer/Iterative_methods/solvers -isystem /opt/homebrew/Cellar/open-mpi/5.0.5/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -O2 -o CMakeFiles/main.dir/solvers/jacobi_mpi.cpp.o -c /Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_mpi.cpp",
+  "file": "/Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_mpi.cpp",
+  "output": "CMakeFiles/main.dir/solvers/jacobi_mpi.cpp.o"
+},
+{
+  "directory": "/Users/etienne/Documents/Developer/Iterative_methods/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/etienne/Documents/Developer/Iterative_methods/solvers -isystem /opt/homebrew/Cellar/open-mpi/5.0.5/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -O2 -o CMakeFiles/main.dir/solvers/jacobi_sequential.cpp.o -c /Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_sequential.cpp",
+  "file": "/Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_sequential.cpp",
+  "output": "CMakeFiles/main.dir/solvers/jacobi_sequential.cpp.o"
+},
+{
+  "directory": "/Users/etienne/Documents/Developer/Iterative_methods/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/etienne/Documents/Developer/Iterative_methods/solvers -isystem /opt/homebrew/Cellar/open-mpi/5.0.5/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -O2 -o CMakeFiles/1_jacobi_seq_asymptotic_accuracy.dir/study_cases/1_jacobi_seq_asymptotic_accuracy/1_jacobi_seq_asymptotic_accuracy.cpp.o -c /Users/etienne/Documents/Developer/Iterative_methods/study_cases/1_jacobi_seq_asymptotic_accuracy/1_jacobi_seq_asymptotic_accuracy.cpp",
+  "file": "/Users/etienne/Documents/Developer/Iterative_methods/study_cases/1_jacobi_seq_asymptotic_accuracy/1_jacobi_seq_asymptotic_accuracy.cpp",
+  "output": "CMakeFiles/1_jacobi_seq_asymptotic_accuracy.dir/study_cases/1_jacobi_seq_asymptotic_accuracy/1_jacobi_seq_asymptotic_accuracy.cpp.o"
+},
+{
+  "directory": "/Users/etienne/Documents/Developer/Iterative_methods/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/etienne/Documents/Developer/Iterative_methods/solvers -isystem /opt/homebrew/Cellar/open-mpi/5.0.5/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -O2 -o CMakeFiles/1_jacobi_seq_asymptotic_accuracy.dir/solvers/jacobi_mpi.cpp.o -c /Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_mpi.cpp",
+  "file": "/Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_mpi.cpp",
+  "output": "CMakeFiles/1_jacobi_seq_asymptotic_accuracy.dir/solvers/jacobi_mpi.cpp.o"
+},
+{
+  "directory": "/Users/etienne/Documents/Developer/Iterative_methods/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/etienne/Documents/Developer/Iterative_methods/solvers -isystem /opt/homebrew/Cellar/open-mpi/5.0.5/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -O2 -o CMakeFiles/1_jacobi_seq_asymptotic_accuracy.dir/solvers/jacobi_sequential.cpp.o -c /Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_sequential.cpp",
+  "file": "/Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_sequential.cpp",
+  "output": "CMakeFiles/1_jacobi_seq_asymptotic_accuracy.dir/solvers/jacobi_sequential.cpp.o"
+},
+{
+  "directory": "/Users/etienne/Documents/Developer/Iterative_methods/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/etienne/Documents/Developer/Iterative_methods/solvers -isystem /opt/homebrew/Cellar/open-mpi/5.0.5/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -O2 -o CMakeFiles/2_jacobi_mpi_strong_scalability.dir/study_cases/2_jacobi_performances/2_jacobi_mpi_strong_scalability.cpp.o -c /Users/etienne/Documents/Developer/Iterative_methods/study_cases/2_jacobi_performances/2_jacobi_mpi_strong_scalability.cpp",
+  "file": "/Users/etienne/Documents/Developer/Iterative_methods/study_cases/2_jacobi_performances/2_jacobi_mpi_strong_scalability.cpp",
+  "output": "CMakeFiles/2_jacobi_mpi_strong_scalability.dir/study_cases/2_jacobi_performances/2_jacobi_mpi_strong_scalability.cpp.o"
+},
+{
+  "directory": "/Users/etienne/Documents/Developer/Iterative_methods/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/etienne/Documents/Developer/Iterative_methods/solvers -isystem /opt/homebrew/Cellar/open-mpi/5.0.5/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -O2 -o CMakeFiles/2_jacobi_mpi_strong_scalability.dir/solvers/jacobi_mpi.cpp.o -c /Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_mpi.cpp",
+  "file": "/Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_mpi.cpp",
+  "output": "CMakeFiles/2_jacobi_mpi_strong_scalability.dir/solvers/jacobi_mpi.cpp.o"
+},
+{
+  "directory": "/Users/etienne/Documents/Developer/Iterative_methods/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/etienne/Documents/Developer/Iterative_methods/solvers -isystem /opt/homebrew/Cellar/open-mpi/5.0.5/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -O2 -o CMakeFiles/2_jacobi_mpi_strong_scalability.dir/solvers/jacobi_sequential.cpp.o -c /Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_sequential.cpp",
+  "file": "/Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_sequential.cpp",
+  "output": "CMakeFiles/2_jacobi_mpi_strong_scalability.dir/solvers/jacobi_sequential.cpp.o"
+},
+{
+  "directory": "/Users/etienne/Documents/Developer/Iterative_methods/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/etienne/Documents/Developer/Iterative_methods/solvers -isystem /opt/homebrew/Cellar/open-mpi/5.0.5/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -O2 -o CMakeFiles/2_jacobi_seq_strong_scalability.dir/study_cases/2_jacobi_performances/2_jacobi_seq_strong_scalability.cpp.o -c /Users/etienne/Documents/Developer/Iterative_methods/study_cases/2_jacobi_performances/2_jacobi_seq_strong_scalability.cpp",
+  "file": "/Users/etienne/Documents/Developer/Iterative_methods/study_cases/2_jacobi_performances/2_jacobi_seq_strong_scalability.cpp",
+  "output": "CMakeFiles/2_jacobi_seq_strong_scalability.dir/study_cases/2_jacobi_performances/2_jacobi_seq_strong_scalability.cpp.o"
+},
+{
+  "directory": "/Users/etienne/Documents/Developer/Iterative_methods/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/etienne/Documents/Developer/Iterative_methods/solvers -isystem /opt/homebrew/Cellar/open-mpi/5.0.5/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -O2 -o CMakeFiles/2_jacobi_seq_strong_scalability.dir/solvers/jacobi_mpi.cpp.o -c /Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_mpi.cpp",
+  "file": "/Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_mpi.cpp",
+  "output": "CMakeFiles/2_jacobi_seq_strong_scalability.dir/solvers/jacobi_mpi.cpp.o"
+},
+{
+  "directory": "/Users/etienne/Documents/Developer/Iterative_methods/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/etienne/Documents/Developer/Iterative_methods/solvers -isystem /opt/homebrew/Cellar/open-mpi/5.0.5/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -O2 -o CMakeFiles/2_jacobi_seq_strong_scalability.dir/solvers/jacobi_sequential.cpp.o -c /Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_sequential.cpp",
+  "file": "/Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_sequential.cpp",
+  "output": "CMakeFiles/2_jacobi_seq_strong_scalability.dir/solvers/jacobi_sequential.cpp.o"
+},
+{
+  "directory": "/Users/etienne/Documents/Developer/Iterative_methods/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/etienne/Documents/Developer/Iterative_methods/solvers -isystem /opt/homebrew/Cellar/open-mpi/5.0.5/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -O2 -o CMakeFiles/2_jacobi_weak_scalability.dir/study_cases/2_jacobi_performances/2_jacobi_weak_scalability.cpp.o -c /Users/etienne/Documents/Developer/Iterative_methods/study_cases/2_jacobi_performances/2_jacobi_weak_scalability.cpp",
+  "file": "/Users/etienne/Documents/Developer/Iterative_methods/study_cases/2_jacobi_performances/2_jacobi_weak_scalability.cpp",
+  "output": "CMakeFiles/2_jacobi_weak_scalability.dir/study_cases/2_jacobi_performances/2_jacobi_weak_scalability.cpp.o"
+},
+{
+  "directory": "/Users/etienne/Documents/Developer/Iterative_methods/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/etienne/Documents/Developer/Iterative_methods/solvers -isystem /opt/homebrew/Cellar/open-mpi/5.0.5/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -O2 -o CMakeFiles/2_jacobi_weak_scalability.dir/solvers/jacobi_mpi.cpp.o -c /Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_mpi.cpp",
+  "file": "/Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_mpi.cpp",
+  "output": "CMakeFiles/2_jacobi_weak_scalability.dir/solvers/jacobi_mpi.cpp.o"
+},
+{
+  "directory": "/Users/etienne/Documents/Developer/Iterative_methods/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/etienne/Documents/Developer/Iterative_methods/solvers -isystem /opt/homebrew/Cellar/open-mpi/5.0.5/include -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -O2 -o CMakeFiles/2_jacobi_weak_scalability.dir/solvers/jacobi_sequential.cpp.o -c /Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_sequential.cpp",
+  "file": "/Users/etienne/Documents/Developer/Iterative_methods/solvers/jacobi_sequential.cpp",
+  "output": "CMakeFiles/2_jacobi_weak_scalability.dir/solvers/jacobi_sequential.cpp.o"
+}
+]

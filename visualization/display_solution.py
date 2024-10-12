@@ -7,7 +7,7 @@ cmap = cmr.lavender
 import scienceplots
 
 # Configure le style des plots
-plt.style.use('science')
+# plt.style.use('science')
 
 class Method(Enum):
     JacobiMPI = auto()
@@ -23,8 +23,8 @@ class Field(Enum):
 folder = "./results"
 # folder = "."
 # folder = "./study_cases/jacobi_sequential_asymptotic_accuracy/results"
-method = Method.GaussSeidelSequential
-what_to_display = Field.last_iteration_solution
+method = Method.JacobiSequential
+what_to_display = Field.source_term
 
 
 file_name = f"{folder}/{method.name}_{what_to_display.name}.csv"
@@ -78,7 +78,7 @@ surf = ax.plot_surface(*get_surface_from_points(*get_points_from_file(file_name)
 
 # Ajouter une barre de couleur
 # fig.colorbar(surf)
-ax.set(xlabel = "$x$", ylabel = "$y$", zlabel = r"$\Tilde{u}(x,y)$")
+ax.set(xlabel = "$x$", ylabel = "$y$", zlabel = r"$\tilde{u}(x,y)$")
 fig.canvas.manager.set_window_title(f"{method} - {what_to_display}")
 
 # Ajouter des labels et un titre
@@ -88,5 +88,5 @@ fig.canvas.manager.set_window_title(f"{method} - {what_to_display}")
 # ax.set(aspect = "equal")
 
 # Afficher la figure
-fig.savefig(f"{method.name}_{what_to_display.name}.pdf")
+# fig.savefig(f"{method.name}_{what_to_display.name}.pdf")
 plt.show()

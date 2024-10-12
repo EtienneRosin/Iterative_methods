@@ -72,8 +72,6 @@ public:
 
     void ComputeOneLocalStep(const std::vector<double> &u, std::vector<double> &new_u, const std::vector<double> &source);
 
-    // ComputeOneStep();
-
     void Solve(int max_iteration, double epsilon, bool verbose = false);
 
     void GatherGlobalSolution();

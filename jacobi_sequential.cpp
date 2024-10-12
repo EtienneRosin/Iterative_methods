@@ -57,15 +57,11 @@ public:
 
     int I(int i, int j);
 
-    float ComputeSquaredResidual(const std::vector<double> &u, const std::vector<double> &source);
-    // ComputeSquaredResidual();
+    double ComputeSquaredResidual(const std::vector<double> &u, const std::vector<double> &source);
 
-    float ComputeSquaredError(const std::vector<double> &u, const std::vector<double> &u_exact);
-    // ComputeSquaredError();
+    double ComputeSquaredError(const std::vector<double> &u, const std::vector<double> &u_exact);
 
     void ComputeOneStep(const std::vector<double> &u, std::vector<double> &new_u, const std::vector<double> &source);
-
-    // ComputeOneStep();
 
     void Solve(int max_iteration, double epsilon, bool verbose = false);
 
@@ -86,7 +82,27 @@ JacobiSequential::JacobiSequential(
 
     InitializeProblem(left_condition_func, right_condition_func, top_condition_func, bottom_condition_func, source_func, init_guess_func, exact_sol_func);
     r_init_ = std::sqrt(ComputeSquaredResidual(sol_, source_));
+    // double value = 0.0;
+    // double dx2 = dx_ * dx_;
+    // double dy2 = dy_ * dy_;
+    // for (int i = 0; i <= Nx_ + 1; i++)
+    // {
+    //     for (int j = 0; j <= Ny_ + 1; j++){
+    //         // double tmp = source[I(i, j)] - ((u[I(i + 1, j)] - 2. * u[I(i, j)] + u[I(i - 1, j)]) / dx2 + (u[I(i, j + 1)] - 2. * u[I(i, j)] + u[I(i, j - 1)]) / dy2);
+    //         value += source_[I(i, j)] * source_[I(i, j)];
+
+    //         // std::cout << "r(" << i << "," << j << ") = " << tmp * tmp << std::endl;
+    //         // std::cout << "value = " << value << "\n";
+    //         // std::cout << "VALUE PONCTUAL RESIDU:" << value << std::endl;
+    //     }
+    // }
+    // r_init_ = std::sqrt(value);
+    // return value;
+
+
     if (verbose){
+        SaveOnDomain(sol_, "initial_guess");
+        SaveOnDomain(source_, "source_term");
         std::cout << "Problem initialized with following properties : \n";
         std::cout << "| Boundaries : [" << x_min_ << ", " << x_max_ << "]x[" << y_min_ << ", " << y_max_ << "]\n";
         std::cout << "| Grid size : " << Nx_ + 2 << "x" << Ny_ + 2 << "\n";
@@ -94,6 +110,7 @@ JacobiSequential::JacobiSequential(
         std::cout << "| r^(0) : " << r_init_ << "\n";
         if (exact_sol_func != nullptr){
             std::cout << "| e^(0) : " << std::sqrt(ComputeSquaredError(sol_, exact_sol_)) << "\n";
+            SaveOnDomain(exact_sol_, "exact_solution");
         };
     }
 };
@@ -114,31 +131,21 @@ void JacobiSequential::InitializeProblem(
             double y = y_min_ + j * dy_;
             if (i == 0)
             {
-                // sol_[I(i, j)] = new_sol_[I(i, j)] = U_0;
                 sol_[I(i, j)] = new_sol_[I(i, j)] = left_condition_func(x);
-                // sol[I(i, j)] = new_sol[I(i, j)] = (double) sin(k_x * x) * sin(k_y * y);
             }
             else if (i == Nx_ + 1){
-                // sol_[I(i, j)] = new_sol_[I(i, j)] = U_0;
                 sol_[I(i, j)] = new_sol_[I(i, j)] = right_condition_func(x);
-                // sol[I(i, j)] = new_sol[I(i, j)] = (double) sin(k_x * x) * sin(k_y * y);
             }
             else if (j == 0){
-                // sol_[I(i, j)] = new_sol_[I(i, j)] = U_0;
                 sol_[I(i, j)] = new_sol_[I(i, j)] = bottom_condition_func(y);
-                // sol[I(i, j)] = new_sol[I(i, j)] = (double) sin(k_x * x) * sin(k_y * y);
             }
             else if (j == Ny_ + 1){
-                // sol_[I(i, j)] = new_sol[_I(i, j)] = U_0;
                 sol_[I(i, j)] = new_sol_[I(i, j)] = top_condition_func(y);
-                // sol[I(i, j)] = new_sol[I(i, j)] = (double) sin(k_x * x) * sin(k_y * y);
             }
             else {
                 sol_[I(i, j)] = new_sol_[I(i, j)] = init_guess_func(x, y);
-                // sol[I(i, j)] = new_sol[I(i, j)] = (double) sin(k_x * x) * sin(k_y * y);
             }
-            // source_[I(i, j)] = (double)-(k_x_squared + k_y_squared) * sin(k_x * x) * sin(k_y * y);
-            // exact_sol_[I(i, j)] = (double) sin(k_x * x) * sin(k_y * y);
+
             source_[I(i, j)] = source_func(x, y);
             if (exact_sol_func != nullptr){
                 exact_sol_[I(i, j)] = exact_sol_func(x, y);
@@ -148,22 +155,26 @@ void JacobiSequential::InitializeProblem(
 };
 
 
-float JacobiSequential::ComputeSquaredResidual(const std::vector<double> &u, const std::vector<double> &source){
+double JacobiSequential::ComputeSquaredResidual(const std::vector<double> &u, const std::vector<double> &source){
     double value = 0.0;
     double dx2 = dx_ * dx_;
     double dy2 = dy_ * dy_;
     for (int i = 1; i <= Nx_; i++)
     {
         for (int j = 1; j <= Ny_; j++){
-            double tmp = source[I(i, j)] - ( (u[I(i+1,j)] - 2.*u[I(i,j)] + u[I(i-1,j)])/dx2 + (u[I(i,j+1)] - 2.*u[I(i,j)] + u[I(i,j-1)])/dy2);
+            double tmp = source[I(i, j)] - ((u[I(i + 1, j)] - 2. * u[I(i, j)] + u[I(i - 1, j)]) / dx2 + (u[I(i, j + 1)] - 2. * u[I(i, j)] + u[I(i, j - 1)]) / dy2);
             value += tmp * tmp;
+            
+            // std::cout << "r(" << i << "," << j << ") = " << tmp * tmp << std::endl;
+            // std::cout << "value = " << value << "\n";
+            // std::cout << "VALUE PONCTUAL RESIDU:" << value << std::endl;
         }
     }
     return value;
 };
 
 
-float JacobiSequential::ComputeSquaredError(const std::vector<double> &u, const std::vector<double> &u_exact){
+double JacobiSequential::ComputeSquaredError(const std::vector<double> &u, const std::vector<double> &u_exact){
     double value = 0.0;
     // double tmp = 0.0;
     for (int i = 0; i <= Nx_ + 1; i++)
@@ -180,9 +191,13 @@ void JacobiSequential::ComputeOneStep(const std::vector<double>& u, std::vector<
     double dx2 = dx_ * dx_;
     double dy2 = dy_ * dy_;
     double A_ii = -2. * (1. / dx2 + 1. / dy2);
-    for (int i = 1; i <= Nx_; i++) {
+    double A_ii_minus_one = 0.5 * (dx2 * dy2) / (dx2 + dy2);
+    // std::cout << "A_ii_minus_one : " << A_ii_minus_one << ", dx2 : " << dx2 <<"\n";
+    for (int i = 1; i <= Nx_; i++)
+    {
         for (int j = 1; j <= Ny_; j++) {
-            new_u[I(i, j)] = (1. / A_ii) * (- (u[I(i + 1, j)] + u[I(i - 1, j)]) / dx2 - (u[I(i, j + 1)] + u[I(i, j - 1)]) / dy2 + source[I(i, j)]);
+            // new_u[I(i, j)] = (1. / A_ii) * (- (u[I(i + 1, j)] + u[I(i - 1, j)]) / dx2 - (u[I(i, j + 1)] + u[I(i, j - 1)]) / dy2 + source[I(i, j)]);
+            new_u[I(i, j)] = A_ii_minus_one * ( (u[I(i + 1, j)] + u[I(i - 1, j)]) / dx2 + (u[I(i, j + 1)] + u[I(i, j - 1)]) / dy2) - A_ii_minus_one * source[I(i, j)];
         };
     };
 };
@@ -195,7 +210,7 @@ void JacobiSequential::Solve(int max_iterations, double epsilon, bool verbose) {
 
         r_ = std::sqrt(ComputeSquaredResidual(sol_, source_));
         if (verbose){
-            std::cout << "l : " << l << ", last residual : " << r_;
+            std::cout << "l : " << l << ", last relative residual : " << r_ / r_init_;
             if (!exact_sol_.empty()) {
                 error_ = std::sqrt(ComputeSquaredError(sol_, exact_sol_));
                 std::cout << ", error :  " << error_;
@@ -222,7 +237,7 @@ void JacobiSequential::Solve(int max_iterations, double epsilon, bool verbose) {
 }
 
 void JacobiSequential::SaveOnDomain(const std::vector<double> &field, std::string file_name, std::string format) {
-    std::string full_name = "./results" + class_name_ + "_" + file_name + format;
+    std::string full_name = "./results/" + class_name_ + "_" + file_name + format;
     std::ofstream file;
     file.open(full_name);
     file << "x; y; u\n";
@@ -236,14 +251,14 @@ void JacobiSequential::SaveOnDomain(const std::vector<double> &field, std::strin
 
 
 // ----------------------------------------------------------------------------
-double a = 2 * M_PI;
-double b = 2 * M_PI;
+double a = 1;
+double b = 1;
 
 double k_x = 2. * M_PI / a;
 double k_y = 2. * M_PI / b;
 
-double k_x_squared = k_x*k_x;
-double k_y_squared = k_y*k_y;
+double k_x_squared = k_x * k_x;
+double k_y_squared = k_y * k_y;
 
 double U_0 = 0.;
 
@@ -256,16 +271,21 @@ double constant(double x, double y){
     return U_0;
 }
 
+double f(double x, double y){
+    return 2. * (-a * x + x * x - b * y + y * y);
+}
+
 double sin_sin(double x, double y) {
-    return (double) sin(k_x * x) * sin(k_y * y);
+    return sin(k_x * x) * sin(k_y * y);
 };
+
+double u(double x, double y){
+    return x * y * (a - x) * (b - y);
+}
 
 double laplacien_sin_sin(double x, double y) {
-    return (double)-(k_x_squared + k_y_squared) * sin(k_x * x) * sin(k_y * y);
+    return -(k_x_squared + k_y_squared) * sin_sin(x, y);
 };
-
-
-
 
 // main to run one time with terminal -----------------------------------------
 // int main() {
@@ -300,7 +320,7 @@ int main() {
         n, n, x_min, x_max, y_min, y_max, 
         dirichlet_condition, dirichlet_condition, 
         dirichlet_condition, dirichlet_condition, 
-        laplacien_sin_sin, constant, sin_sin, false);
+        laplacien_sin_sin, sin_sin, sin_sin, true);
     auto end_init = std::chrono::high_resolution_clock::now();
     
     std::chrono::duration<double> elapsed_init = end_init - start_init;
@@ -308,7 +328,7 @@ int main() {
 
     // Mesurer le temps de la méthode Solve
     auto start_solve = std::chrono::high_resolution_clock::now();
-    jac_seq.Solve(20000, 1e-6);
+    jac_seq.Solve(20000, 1e-8, false);
     auto end_solve = std::chrono::high_resolution_clock::now();
     
     std::chrono::duration<double> elapsed_solve = end_solve - start_solve;
@@ -332,8 +352,8 @@ int main() {
 //     double y_min = 0.;
 //     double x_max = a;
 //     double y_max = b;
+//     int Ny = 50;
 //     // JacobiSequential jac(n, n )
-
 
 //     // --------------------------------
 //     int n_min = 50; 
@@ -358,7 +378,7 @@ int main() {
 //             double h = x_max / (n + 1);
 //             std::cout << "n : " << n << ", epsilon : " << epsilon << "\n";
 //             JacobiSequential jac_seq(
-//                 n, n, x_min, x_max, y_min, y_max,
+//                 n, Ny, x_min, x_max, y_min, y_max,
 //                 dirichlet_condition, dirichlet_condition,
 //                 dirichlet_condition, dirichlet_condition,
 //                 laplacien_sin_sin, constant, sin_sin, false);

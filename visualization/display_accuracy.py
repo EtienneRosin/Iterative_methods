@@ -7,8 +7,8 @@ import scienceplots
 plt.style.use('science')
 
 # Chargement des données
-fname: str = "../results/jacobi_sequential_asymptotic_accuracy.csv"
-fname: str = "./results/gauss_seidel_sequential_asymptotic_accuracy.csv"
+fname: str = "./results/jacobi_sequential_asymptotic_accuracy.csv"
+# fname: str = "./results/gauss_seidel_sequential_asymptotic_accuracy.csv"
 data = np.genfromtxt(fname=fname, dtype=float, delimiter=';', names=True)
 epsilon_values = data['epsilon']
 h_values = data['h']
@@ -56,7 +56,7 @@ for epsilon_value in unique_epsilons:
     h_subset, error_subset = extract_associated_data(epsilon_value)
     
     ax.plot(
-        h_subset, 
+        h_subset*2, 
         error_subset, 
         marker='o', 
         label=fr"${epsilon_value:.1e}$", 
@@ -74,5 +74,5 @@ fit_legend = fig.legend([fit_line], [f"Fit: ${fit_label}$"], loc='upper center')
 ax.add_artist(fit_legend)  # Ajoute la légende de fit à l'axe
 
 # ax.grid(True)
-fig.savefig("gauss_seidel_assymptotic_accuracy.pdf")
+# fig.savefig("gauss_seidel_assymptotic_accuracy.pdf")
 plt.show()
