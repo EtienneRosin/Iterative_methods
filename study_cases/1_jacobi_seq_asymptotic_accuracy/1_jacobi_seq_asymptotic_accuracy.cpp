@@ -72,9 +72,9 @@ int main() {
 
     // --------------------------------
     int n_min = 50; 
-    int n_max = 300; 
+    int n_max = 200; 
     // double epsilon_min = 1e-1; 
-    double epsilon_min = 1e-4;
+    double epsilon_min = 1e-8;
     double epsilon_max = 1e-8;
     int maxIterations = 2000000;
     // --------------------------------
@@ -86,7 +86,7 @@ int main() {
         return 1;
     }
 
-    log_file << "epsilon; h^2; error; last_iteration\n";
+    log_file << "epsilon; h; error; last_iteration\n";
 
     for (double epsilon = epsilon_min; epsilon >= epsilon_max; epsilon /= 10) {
         for (int n = n_min; n <= n_max; n += 10) {
@@ -99,9 +99,9 @@ int main() {
                 dirichlet_condition, dirichlet_condition,
                 laplacien_sin_sin, constant, sin_sin, false);
 
-            jac_seq.Solve(maxIterations, epsilon_max);
+            jac_seq.Solve(maxIterations, epsilon_max, false);
 
-            log_file << epsilon << "; " << jac_seq.dx_ * jac_seq.dy_ << "; " << jac_seq.error_ << "; " << jac_seq.last_l_ << "\n";
+            log_file << epsilon << "; " << jac_seq.dx_ << "; " << jac_seq.error_ << "; " << jac_seq.last_l_ << "\n";
         }
     }
     log_file.close();

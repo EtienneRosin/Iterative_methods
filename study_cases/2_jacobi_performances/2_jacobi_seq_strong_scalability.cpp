@@ -28,9 +28,6 @@ void run_jacobi_seq_test(int max_iterations, double tolerance) {
 }
 
 int main() {
-
-    int max_iterations = 200000;
-    double tolerance = 1e-6; 
     run_jacobi_seq_test(max_iterations, tolerance);
     return 0;
 }

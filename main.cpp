@@ -49,13 +49,16 @@ int main(int argc, char *argv[]) {
 
     MPI_Barrier(MPI_COMM_WORLD);
     // std::cout << "p = " << process_rank << "\n";
-    double init_start = MPI_Wtime();
+    // double init_start = MPI_Wtime();
 
-    int n = 200;
+    int n = 75;
     double x_min = 0.;
     double y_min = 0.;
     double x_max = a;
     double y_max = b;
+
+    double epsilon = 1e-6;
+    int maxIterations = 200000;
 
     JacobiMPI jac_mpi(
         n, n, x_min, x_max, y_min, y_max, 
@@ -69,9 +72,9 @@ int main(int argc, char *argv[]) {
     //     std::cout << "Initialization time : " << init_end - init_start << " secondes" << std::endl;
     // }
 
-    jac_mpi.Solve(200000, 1e-6);
+    jac_mpi.Solve(maxIterations, epsilon);
 
-    MPI_Barrier(MPI_COMM_WORLD);
+    // MPI_Barrier(MPI_COMM_WORLD);
 
 
     // double total_end = MPI_Wtime();
@@ -87,7 +90,7 @@ int main(int argc, char *argv[]) {
     //     dirichlet_condition, dirichlet_condition, dirichlet_condition, dirichlet_condition, 
     //     laplacien_sin_sin, constant, sin_sin, true);
 
-    // jac_seq.Solve(200000, 1e-6);
+    // jac_seq.Solve(maxIterations, epsilon);
     // return 0;
 
     MPI_Finalize();

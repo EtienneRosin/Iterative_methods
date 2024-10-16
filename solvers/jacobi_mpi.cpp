@@ -51,7 +51,7 @@ JacobiMPI::JacobiMPI(
         top_condition_func, bottom_condition_func, 
         source_func, init_guess_func, exact_sol_func);
 
-    double local_squared_residual_ = LocalSquaredResidual(local_sol_, local_source_);
+    double local_squared_residual_ = LocalInitialSquaredResidual(local_source_);
 
     CheckMPIError(
         MPI_Reduce(
@@ -160,7 +160,19 @@ double JacobiMPI::LocalSquaredResidual(const std::vector<double> &u, const std::
             value += tmp * tmp;
         }
     }
-    return value;
+    return value / ((Nx_ + 2)*(Ny_ + 2));
+}
+
+double JacobiMPI::LocalInitialSquaredResidual(const std::vector<double> &source){
+    double value = 0.0;
+    for (int i = 1; i <= Nx_; i++)
+    {
+        for (int j = 1; j <= num_local_rows_; j++){
+            double tmp = source[I(i, j)];
+            value += tmp * tmp;
+        }
+    }
+    return value/ ((Nx_ + 2)*(Ny_ + 2));
 }
 
 double JacobiMPI::LocalSquaredError(const std::vector<double> &u, const std::vector<double> &u_exact){
@@ -175,7 +187,7 @@ double JacobiMPI::LocalSquaredError(const std::vector<double> &u, const std::vec
             value += tmp * tmp;
         }
     }
-    return value;
+    return value / ((Nx_ + 2)*(Ny_ + 2));
 }
 
 void JacobiMPI::ComputeOneLocalStep(const std::vector<double> &u, std::vector<double> &new_u, const std::vector<double> &source){
@@ -241,11 +253,13 @@ void JacobiMPI::Solve(int max_iterations, double epsilon, bool verbose) {
     if (!local_exact_sol_.empty()) {
         double local_squared_error = LocalSquaredError(local_sol_, local_exact_sol_);
         CheckMPIError(MPI_Reduce(&local_squared_error, &error_, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD), "Error reducing global squared error");  // every process sends to the process 0 its local error
-
-        if (process_rank_ == 0){
-            if (verbose){
+        // std::cout << "getting error \n";
+        if (process_rank_ == 0)
+        {
+            // if (verbose){
+            // std::cout << "Last error :  " << std::sqrt(error_) << "\n";
+            // }
             std::cout << "Last error :  " << std::sqrt(error_) << "\n";
-            }
         }
     }
 

@@ -144,6 +144,14 @@ public:
     double LocalSquaredResidual(const std::vector<double> &u, const std::vector<double> &source);
 
     /*!
+      \brief Compute the initial squared residual on the process's subdomain
+
+      \param source source vector
+      \return initial local squared residual
+    */
+    double LocalInitialSquaredResidual(const std::vector<double> &source);
+
+    /*!
       \brief Compute the squared error on the process's subdomain
 
       \param u local solution vector

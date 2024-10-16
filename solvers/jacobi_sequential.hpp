@@ -116,6 +116,14 @@ public:
     double Nx(const std::vector<double> &u, int i, int j);
 
     /*!
+      \brief Compute the initial squared residual (\|b\|)
+
+      \param source source vector
+      \return initial squared residual
+    */
+    double InitialSquaredResidual(const std::vector<double> &source);
+
+    /*!
       \brief Compute the squared residual
 
       \param u solution vector

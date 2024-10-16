@@ -50,8 +50,7 @@ void run_jacobi_mpi_test(int max_iterations, double tolerance) {
 int main(int argc, char** argv) {
     MPI_Init(&argc, &argv);
 
-    int max_iterations = 500000;
-    double tolerance = 1e-6; 
+    
     run_jacobi_mpi_test(max_iterations, tolerance);
 
     MPI_Finalize(); 

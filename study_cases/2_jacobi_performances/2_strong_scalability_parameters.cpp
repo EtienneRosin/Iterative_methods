@@ -36,7 +36,7 @@ double laplacien_sin_sin(double x, double y) {
     return -(k_x_squared + k_y_squared) * sin_sin(x, y);
 };
 
-int n = 100;
+int n = 400;
 int Nx = n;
 int Ny = n;
 
@@ -44,3 +44,6 @@ double x_min = 0.;
 double x_max = a;
 double y_min = 0.;
 double y_max = b;
+
+int max_iterations = 200000;
+double tolerance = 1e-6; 

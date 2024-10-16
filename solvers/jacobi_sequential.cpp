@@ -19,7 +19,8 @@ JacobiSequential::JacobiSequential(
     };
 
     InitializeProblem(left_condition_func, right_condition_func, top_condition_func, bottom_condition_func, source_func, init_guess_func, exact_sol_func);
-    r_init_ = std::sqrt(SquaredResidual(sol_, source_));
+    // r_init_ = std::sqrt(SquaredResidual(sol_, source_));
+    r_init_ = std::sqrt(InitialSquaredResidual(source_));
 
     if (verbose){
         SaveOnDomain(sol_, "initial_guess");
@@ -85,16 +86,30 @@ double JacobiSequential::Nx(const std::vector<double> &u, int i, int j) {
     return -(u[I(i + 1, j)] + u[I(i - 1, j)]) / dx2_ - (u[I(i, j + 1)] + u[I(i, j - 1)]) / dy2_;
 }
 
+double JacobiSequential::InitialSquaredResidual(const std::vector<double> &source)
+{
+    double value = 0.0;
+    for (int i = 1; i <= Nx_; i++)
+    {
+        for (int j = 1; j <= Ny_; j++){
+            double tmp = source[I(i, j)];
+            value += tmp * tmp;
+        }
+    }
+    return value /((Nx_ + 2)*(Ny_ + 2));
+};
+
 double JacobiSequential::SquaredResidual(const std::vector<double> &u, const std::vector<double> &source){
     double value = 0.0;
     for (int i = 1; i <= Nx_; i++)
     {
         for (int j = 1; j <= Ny_; j++){
             double tmp = source[I(i, j)] - Ax(u, i, j);
+            // double tmp_2 = source[I(i, j)];
             value += tmp * tmp;
         }
     }
-    return value;
+    return value/((Nx_ + 2)*(Ny_ + 2));
 }
 
 double JacobiSequential::SquaredError(const std::vector<double> &u, const std::vector<double> &u_exact){
@@ -106,7 +121,7 @@ double JacobiSequential::SquaredError(const std::vector<double> &u, const std::v
             value += tmp * tmp;
         }
     }
-    return value;
+    return value/((Nx_ + 2)*(Ny_ + 2));
 }
 
 void JacobiSequential::ComputeOneStep(const std::vector<double> &u, std::vector<double> &new_u, const std::vector<double> &source){
