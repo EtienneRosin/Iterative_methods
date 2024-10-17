@@ -78,7 +78,7 @@ int main() {
     double epsilon_max = 1e-8;
     int maxIterations = 2000000;
     // --------------------------------
-    std::filesystem::path full_name = "../study_cases/1_jacobi_seq_asymptotic_accuracy/results/jacobi_sequential_asymptotic_accuracy.csv";
+    std::string full_name = "../study_cases/1_jacobi_seq_asymptotic_accuracy/results/jacobi_sequential_asymptotic_accuracy.csv";
     std::ofstream log_file(full_name);
 
     if (!log_file.is_open()) {
