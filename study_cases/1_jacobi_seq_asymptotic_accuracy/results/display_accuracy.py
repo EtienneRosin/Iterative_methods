@@ -72,7 +72,7 @@ lst_h = np.linspace(h_subset.min(), h_subset.max(), num=500)
 # ax.plot(lst_h, lst_h)
 fit_label = fr"{popt[0]:1.1f}(\pm {perr[0]:1.1f}) + {popt[1]:1.1f}(\pm {perr[1]:.1f})h + {popt[2]:1.1f}(\pm {perr[2]:.1f})h^2 + O(h^3)"
 # fit_line, = ax.plot(lst_h, modele(lst_h, *popt), color='orange')
-fit_line, = ax.plot(lst_h, modele(lst_h, *popt), color='orange')
+fit_line, = ax.plot(lst_h, modele(lst_h, *popt))
 fit_legend = fig.legend([fit_line], [f"Fit: ${fit_label}$"], loc='upper center')
 ax.add_artist(fit_legend)  # Ajoute la légende de fit à l'axe
 
@@ -97,11 +97,13 @@ ax.set(
     # xscale = "log",
     # yscale = "log"
     )
-ax.legend(title=r"$\varepsilon$ values")
+ax.legend(
+    # title=r"$\varepsilon$ values"
+    )
 
 # Ajout d'une légende pour le fit
 
 
 ax.grid(True, which="both")
-# fig.savefig("gauss_seidel_assymptotic_accuracy.pdf")
+fig.savefig("jacobi_assymptotic_accuracy.pdf")
 plt.show()

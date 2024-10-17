@@ -8,7 +8,7 @@ cmap = cmr.lavender
 import scienceplots
 
 # Configure le style des plots
-# plt.style.use('science')
+plt.style.use('science')
 
 
 # fname = "strong_scalability_measurement.csv"

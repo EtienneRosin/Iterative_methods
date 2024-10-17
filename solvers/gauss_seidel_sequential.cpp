@@ -1,8 +1,8 @@
 // g++ -std=c++17 jacobi_sequential.cpp -o jacobi_sequential
 
-#include "jacobi_sequential.hpp"
+#include "gauss_seidel_sequential.hpp"
 
-JacobiSequential::JacobiSequential(
+GaussSeidelSequential::GaussSeidelSequential(
         int Nx, int Ny, double x_min, double x_max, double y_min, double y_max,
         OneVarFuncPtr left_condition_func, OneVarFuncPtr right_condition_func,
         OneVarFuncPtr top_condition_func, OneVarFuncPtr bottom_condition_func,
@@ -38,7 +38,7 @@ JacobiSequential::JacobiSequential(
 };
 
 
-void JacobiSequential::InitializeProblem(
+void GaussSeidelSequential::InitializeProblem(
     OneVarFuncPtr left_condition_func, OneVarFuncPtr right_condition_func,
     OneVarFuncPtr top_condition_func, OneVarFuncPtr bottom_condition_func,
     TwoVarsFuncPtr source_func, TwoVarsFuncPtr init_guess_func,
@@ -73,20 +73,20 @@ void JacobiSequential::InitializeProblem(
 };
 
 
-int JacobiSequential::I(int i, int j)
+int GaussSeidelSequential::I(int i, int j)
 {
     return i + j * (Nx_ + 2);
 }
 
-double JacobiSequential::Ax(const std::vector<double> &u, int i, int j){
+double GaussSeidelSequential::Ax(const std::vector<double> &u, int i, int j){
     return (u[I(i + 1, j)] - 2. * u[I(i, j)] + u[I(i - 1, j)]) / dx2_ + (u[I(i, j + 1)] - 2. * u[I(i, j)] + u[I(i, j - 1)]) / dy2_;
 }
 
-double JacobiSequential::Nx(const std::vector<double> &u, int i, int j) {
-    return -(u[I(i + 1, j)] + u[I(i - 1, j)]) / dx2_ - (u[I(i, j + 1)] + u[I(i, j - 1)]) / dy2_;
+double GaussSeidelSequential::Nx(const std::vector<double> &u, const std::vector<double> &new_u, int i, int j) {
+    return -(u[I(i + 1, j)] + new_u[I(i - 1, j)]) / dx2_ - (u[I(i, j + 1)] + new_u[I(i, j - 1)]) / dy2_;
 }
 
-double JacobiSequential::InitialSquaredResidual(const std::vector<double> &source)
+double GaussSeidelSequential::InitialSquaredResidual(const std::vector<double> &source)
 {
     double value = 0.0;
     for (int i = 1; i <= Nx_; i++)
@@ -99,7 +99,7 @@ double JacobiSequential::InitialSquaredResidual(const std::vector<double> &sourc
     return value /((Nx_ + 2)*(Ny_ + 2));
 };
 
-double JacobiSequential::SquaredResidual(const std::vector<double> &u, const std::vector<double> &source){
+double GaussSeidelSequential::SquaredResidual(const std::vector<double> &u, const std::vector<double> &source){
     double value = 0.0;
     for (int i = 1; i <= Nx_; i++)
     {
@@ -112,7 +112,7 @@ double JacobiSequential::SquaredResidual(const std::vector<double> &u, const std
     return value/((Nx_ + 2)*(Ny_ + 2));
 }
 
-double JacobiSequential::SquaredError(const std::vector<double> &u, const std::vector<double> &u_exact){
+double GaussSeidelSequential::SquaredError(const std::vector<double> &u, const std::vector<double> &u_exact){
     double value = 0.0;
     for (int i = 0; i <= Nx_ + 1; i++)
     {
@@ -124,17 +124,17 @@ double JacobiSequential::SquaredError(const std::vector<double> &u, const std::v
     return value/((Nx_ + 2)*(Ny_ + 2));
 }
 
-void JacobiSequential::ComputeOneStep(const std::vector<double> &u, std::vector<double> &new_u, const std::vector<double> &source){
+void GaussSeidelSequential::ComputeOneStep(const std::vector<double> &u, std::vector<double> &new_u, const std::vector<double> &source){
     double A_ii_minus_one = - 0.5 * (dx2_ * dy2_) / (dx2_ + dy2_);
     for (int i = 1; i <= Nx_; i++)
     {
         for (int j = 1; j <= Ny_; j++) {
-            new_u[I(i, j)] = A_ii_minus_one * (source[I(i, j)] + Nx(u, i, j));
+            new_u[I(i, j)] = A_ii_minus_one * (source[I(i, j)] + Nx(u, new_u, i, j));
         };
     };
 }
 
-void JacobiSequential::Solve(int max_iterations, double epsilon, bool verbose) {
+void GaussSeidelSequential::Solve(int max_iterations, double epsilon, bool verbose) {
     for (int l = 1; l <= max_iterations; l++) {
         ComputeOneStep(sol_, new_sol_, source_);
         sol_.swap(new_sol_);
@@ -167,7 +167,7 @@ void JacobiSequential::Solve(int max_iterations, double epsilon, bool verbose) {
     SaveOnDomain(sol_, "last_iteration_solution");
 }
 
-void JacobiSequential::SaveOnDomain(const std::vector<double> &field, std::string file_name, std::string folder, std::string format){
+void GaussSeidelSequential::SaveOnDomain(const std::vector<double> &field, std::string file_name, std::string folder, std::string format){
     std::string full_name = folder + class_name_ + "_" + file_name + format;
     std::ofstream file;
     file.open(full_name);
@@ -179,4 +179,3 @@ void JacobiSequential::SaveOnDomain(const std::vector<double> &field, std::strin
     }
     file.close();
 }
-
