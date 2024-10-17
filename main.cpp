@@ -1,6 +1,8 @@
 #include "solvers/jacobi_sequential.hpp"
 #include "solvers/jacobi_mpi.hpp"
 #include "solvers/gauss_seidel_sequential.hpp"
+#include "solvers/gauss_seidel_sequential_red_black.hpp"
+#include "solvers/gauss_seidel_mpi.hpp"
 
 // #include <mpi.h>
 
@@ -61,38 +63,48 @@ int main(int argc, char *argv[]) {
     double epsilon = 1e-10;
     int maxIterations = 200000;
 
-    JacobiMPI jac_mpi(
+    // ------------------------------------------------------------------------
+    // JacobiSequential jac_seq_solver(
+    //     n, n, x_min, x_max, y_min, y_max, 
+    //     dirichlet_condition, dirichlet_condition, dirichlet_condition, dirichlet_condition, 
+    //     laplacien_sin_sin, constant, sin_sin, true);
+
+    // jac_seq_solver.Solve(maxIterations, epsilon);
+
+    // ------------------------------------------------------------------------
+    // JacobiMPI jac_mpi_solver(
+    //     n, n, x_min, x_max, y_min, y_max, 
+    //     dirichlet_condition, dirichlet_condition, 
+    //     dirichlet_condition, dirichlet_condition, 
+    //     laplacien_sin_sin, constant, sin_sin, true);
+
+    // jac_mpi_solver.Solve(maxIterations, epsilon);
+
+
+    // ------------------------------------------------------------------------
+    // GaussSeidelSequential gauss_seidel_seq_solver(
+    //     n, n, x_min, x_max, y_min, y_max, 
+    //     dirichlet_condition, dirichlet_condition, dirichlet_condition, dirichlet_condition, 
+    //     laplacien_sin_sin, constant, sin_sin, true);
+
+    // gauss_seidel_seq_solver.Solve(maxIterations, epsilon);
+
+    // ------------------------------------------------------------------------
+    // GaussSeidelSequentialRedBlack gauss_seidel_seq_red_black_solver(
+    //     n, n, x_min, x_max, y_min, y_max, 
+    //     dirichlet_condition, dirichlet_condition, dirichlet_condition, dirichlet_condition, 
+    //     laplacien_sin_sin, constant, sin_sin, true);
+
+    // gauss_seidel_seq_red_black_solver.Solve(maxIterations, epsilon, false);
+
+    // ------------------------------------------------------------------------
+    GaussSeidelMPI gauss_seidel_mpi(
         n, n, x_min, x_max, y_min, y_max, 
-        dirichlet_condition, dirichlet_condition, 
-        dirichlet_condition, dirichlet_condition, 
+        dirichlet_condition, dirichlet_condition, dirichlet_condition, dirichlet_condition, 
         laplacien_sin_sin, constant, sin_sin, true);
 
-    jac_mpi.Solve(maxIterations, epsilon);
+    gauss_seidel_mpi.Solve(maxIterations, epsilon, false);
 
-    // MPI_Barrier(MPI_COMM_WORLD);
-
-
-    // double total_end = MPI_Wtime();
-
-    // if (process_rank == 0) {
-    //     std::cout << "Total time : " << total_end - init_start << " secondes" << std::endl;
-    // }
-
-
-
-    // JacobiSequential jac_seq(
-    //     n, n, x_min, x_max, y_min, y_max, 
-    //     dirichlet_condition, dirichlet_condition, dirichlet_condition, dirichlet_condition, 
-    //     laplacien_sin_sin, constant, sin_sin, true);
-
-    // jac_seq.Solve(maxIterations, epsilon);
-
-    // GaussSeidelSequential gauss_seidel_seq(
-    //     n, n, x_min, x_max, y_min, y_max, 
-    //     dirichlet_condition, dirichlet_condition, dirichlet_condition, dirichlet_condition, 
-    //     laplacien_sin_sin, constant, sin_sin, true);
-
-    // gauss_seidel_seq.Solve(maxIterations, epsilon);
 
 
     MPI_Finalize();
