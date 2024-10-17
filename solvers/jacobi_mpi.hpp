@@ -5,7 +5,7 @@
 #include <vector>
 #include <cmath>
 #include <fstream>
-#include <filesystem>
+// #include <filesystem>
 #include <chrono>
 #include <mpi.h>
 
@@ -43,6 +43,7 @@ public:
     double error_;           //! current error (defined only if the exact solution has been provided)
     int last_l_;             //! last iteration (-1 if no convergence)
     std::string class_name_; //! name of the class (used for saving)
+    // double solving_time;
 
     // process properties -----------------------------------------------------
     int process_rank_;      //! process rank

@@ -28,7 +28,7 @@ process_counts = other_runtimes.index.values
 # def E(t_para, p):
 #     return p * T_1 / ( t_para)
 def E(t_para, p):
-    return T_1 / (p * t_para)
+    return (T_1 / t_para) / p
     
 # print(E(lst_T_para, lst_p))
 
@@ -46,5 +46,5 @@ ax.plot(lst_p, E(lst_T_para, lst_p), label = r"$E_m$", markersize = 3, linewidth
 ax.legend()
 ax.set(xlabel = r"$P$", ylabel = "$E$")
 # # plt.tight_layout()
-# fig.savefig("study_cases/2_jacobi_performances/results/jacobi_weak_scalability_on_my_mac.pdf")
+fig.savefig("study_cases/2_jacobi_performances/results/jacobi_weak_scalability_on_my_mac.pdf")
 plt.show()

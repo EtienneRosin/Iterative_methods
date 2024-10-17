@@ -79,8 +79,6 @@ JacobiMPI::JacobiMPI(
     
     if (process_rank_ == 0) {
         r_init_ = std::sqrt(r_);
-
-
         if (verbose){
             std::cout << "Problem initialized with following properties : \n";
             std::cout << "| Boundaries : [" << x_min_ << ", " 
@@ -102,7 +100,6 @@ void JacobiMPI::CheckMPIError(int errCode, const std::string& errMsg) {
         MPI_Abort(MPI_COMM_WORLD, errCode);
     }
 };
-
 
 void JacobiMPI::InitializeLocalProblem(
     OneVarFuncPtr left_condition_func, OneVarFuncPtr right_condition_func,
@@ -204,7 +201,7 @@ void JacobiMPI::Solve(int max_iterations, double epsilon, bool verbose) {
     bool converged = false;
     MPI_Barrier(MPI_COMM_WORLD);
     double start_time = MPI_Wtime();
-    ExchangeBoundaries(); // just to be sure that every process has the correct initialization
+    // ExchangeBoundaries(); // just to be sure that every process has the correct initialization
 
     for (int l = 1; l <= max_iterations; l++) {
         if (converged) break;
