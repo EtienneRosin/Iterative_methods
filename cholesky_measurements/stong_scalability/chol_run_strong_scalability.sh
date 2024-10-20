@@ -24,6 +24,6 @@ module load gmsh
 module load openmpi
 
 # Execution
-mpirun -np $procs_count ${SLURM_SUBMIT_DIR}/2_strong_scalability
+mpirun -np $procs_count ${SLURM_SUBMIT_DIR}/build/2_strong_scalability
 EOF
 done
