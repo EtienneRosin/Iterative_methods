@@ -9,8 +9,8 @@ plt.style.use('science')
 
 
 folder = "./study_cases/1_asymptotic_accuracy"
-fname_gauss_seidel = f"{folder}/gauss_seidel_sequential_asymptotic_accuracy.csv"
-fname_jacobi = f"{folder}/jacobi_sequential_asymptotic_accuracy.csv"
+fname_gauss_seidel = f"{folder}/gauss_seidel_sequential_asymptotic_accuracy_on_mac.csv"
+fname_jacobi = f"{folder}/jacobi_sequential_asymptotic_accuracy_on_mac.csv"
 
 
 data_gauss_seidel = np.genfromtxt(fname=fname_gauss_seidel, dtype=float, delimiter=';', names=True)
@@ -37,7 +37,7 @@ def modele(h, *p):
 
 def model_label(popt, perr):
     # return fr"{popt[0]:1.1f}(\pm {perr[0]:1.1f}) + {popt[1]:1.1f}(\pm {perr[1]:.1f})h + {popt[2]:1.1f}(\pm {perr[2]:.1f})h^2 + O(h^3)"
-    return fr"{popt[0]:1.1f} + {popt[1]:1.1f}h + {popt[2]:1.1f}h^2 + O(h^3)"
+    return fr"{popt[0]:1.1f} + {popt[1]:1.1f}h + {popt[2]:1.1f}h^2"
 
 
 p0 = [10, 100, 10]
@@ -68,14 +68,15 @@ for epsilon_value in unique_epsilons:
     h_subset_gauss_seidel, error_subset_gauss_seidel = extract_associated_data(epsilon_value, lst_h, errors_gauss_seidel, epsilon_values)
     ax.plot(h_subset_gauss_seidel, error_subset_gauss_seidel, label=fr"G.S.", color='red', **lines_props)
 
-fit_line_jacobi, = ax.plot(lst_h, modele(lst_h, *popt_jacobi), label=f"Fit: ${fit_label_jacobi}$", color='green', **fit_lines_props)
-fit_line_gauss_seidel, = ax.plot(lst_h, modele(lst_h, *popt_gauss_seidel), label=f"Fit: ${fit_label_gauss_seidel}$", color='red', **fit_lines_props)
+fit_line_jacobi, = ax.plot(lst_h, modele(lst_h, *popt_jacobi), label=f"${fit_label_jacobi}$", color='green', **fit_lines_props)
+fit_line_gauss_seidel, = ax.plot(lst_h, modele(lst_h, *popt_gauss_seidel), label=f"${fit_label_gauss_seidel}$", color='red', **fit_lines_props)
 
 
 ax.set(xlabel=r"$h$", ylabel=r"$\left\|\boldsymbol{e}^{(l_{\text{stop}})}\right\|$",
     #    xscale="log", yscale="log"
        )
 
-ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.15), ncol=2)
+ax.legend(loc='upper center',  ncol=2)
+fig.savefig(fname="Figures/accuracy.pdf")
 
 plt.show()

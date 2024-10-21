@@ -14,8 +14,8 @@ file_props = dict(dtype = float, delimiter = ';', names=True)
 
 folder: str = "study_cases/2_strong_scalability"
 
-gs_file_name = f"{folder}/gauss_seidel_strong_scalability.csv"
-jac_file_name = f"{folder}/jacobi_strong_scalability.csv"
+gs_file_name = f"{folder}/gauss_seidel_strong_scalability_on_mac.csv"
+jac_file_name = f"{folder}/jacobi_strong_scalability_on_mac.csv"
 
 gs_data = np.genfromtxt(fname = gs_file_name, **file_props)
 jac_data = np.genfromtxt(fname = jac_file_name, **file_props)
@@ -55,6 +55,7 @@ ax.plot(lst_p, S(gs_T_seq, gs_T_para), label = "Gauss-Seidel", **line_props, c =
 
 ax.set(xlabel = r"$p$", ylabel = "$S$")
 ax.legend()
+fig.savefig(fname="Figures/strong_scalability.pdf")
 plt.show()
 
 # # fname = "strong_scalability_measurement.csv"

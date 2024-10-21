@@ -12,4 +12,4 @@ module load gcc
 module load gmsh
 module load openmpi
 ## execution
-mpirun -display-map ${SLURM_SUBMIT_DIR}/2_jacobi_weak_scalability
+mpirun -display-map ${SLURM_SUBMIT_DIR}/build/2_jacobi_weak_scalability
