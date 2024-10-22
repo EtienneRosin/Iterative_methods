@@ -1,0 +1,14 @@
+ Data for JOB [45466,1] offset 0 Total slots allocated 1
+
+ ========================   JOB MAP   ========================
+
+ Data for node: node032	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [45466,1] App: 0 Process rank: 0 Bound: UNBOUND
+
+ =============================================================
+Converged after 150054 iterations, last residual : 3.93791e-07
+Last error :  1.01993e-05
+Total execution time: 962.144 seconds
+Converged after 76439 iterations, last residual : 3.93775e-07
+Last error :  1.02008e-05
+Total execution time: 564.277 seconds

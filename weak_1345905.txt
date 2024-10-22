@@ -1,0 +1,29 @@
+ Data for JOB [20031,1] offset 0 Total slots allocated 16
+
+ ========================   JOB MAP   ========================
+
+ Data for node: node024	Num slots: 16	Max slots: 0	Num procs: 16
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 0 Bound: socket 0[core 0[hwt 0]]:[B/././././././.][./././././././.]
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 1 Bound: socket 0[core 1[hwt 0]]:[./B/./././././.][./././././././.]
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 2 Bound: socket 0[core 2[hwt 0]]:[././B/././././.][./././././././.]
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 3 Bound: socket 0[core 3[hwt 0]]:[./././B/./././.][./././././././.]
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 4 Bound: socket 0[core 4[hwt 0]]:[././././B/././.][./././././././.]
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 5 Bound: socket 0[core 5[hwt 0]]:[./././././B/./.][./././././././.]
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 6 Bound: socket 0[core 6[hwt 0]]:[././././././B/.][./././././././.]
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 7 Bound: socket 0[core 7[hwt 0]]:[./././././././B][./././././././.]
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 8 Bound: socket 1[core 8[hwt 0]]:[./././././././.][B/././././././.]
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 9 Bound: socket 1[core 9[hwt 0]]:[./././././././.][./B/./././././.]
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 10 Bound: socket 1[core 10[hwt 0]]:[./././././././.][././B/././././.]
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 11 Bound: socket 1[core 11[hwt 0]]:[./././././././.][./././B/./././.]
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 12 Bound: socket 1[core 12[hwt 0]]:[./././././././.][././././B/././.]
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 13 Bound: socket 1[core 13[hwt 0]]:[./././././././.][./././././B/./.]
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 14 Bound: socket 1[core 14[hwt 0]]:[./././././././.][././././././B/.]
+ 	Process OMPI jobid: [20031,1] App: 0 Process rank: 15 Bound: socket 1[core 15[hwt 0]]:[./././././././.][./././././././B]
+
+ =============================================================
+No convergence, last residual : 39.2763
+Last error :  0.497441
+Total execution time: 1.77721 seconds
+No convergence, last residual : 55.3583
+Last error :  0.495767
+Total execution time: 2.22121 seconds

@@ -1,0 +1,6 @@
+[node032:21332] mca_base_component_repository_open: unable to open mca_mtl_psm: libpsm_infinipath.so.1: cannot open shared object file: No such file or directory (ignored)
+[node032:21330] mca_base_component_repository_open: unable to open mca_mtl_psm: libpsm_infinipath.so.1: cannot open shared object file: No such file or directory (ignored)
+[node032:21329] mca_base_component_repository_open: unable to open mca_mtl_psm: libpsm_infinipath.so.1: cannot open shared object file: No such file or directory (ignored)
+[node032:21331] mca_base_component_repository_open: unable to open mca_mtl_psm: libpsm_infinipath.so.1: cannot open shared object file: No such file or directory (ignored)
+/var/spool/slurm//job1345874/slurm_script: ligne15: Erreur de syntaxe près du symbole inattendu « done »
+/var/spool/slurm//job1345874/slurm_script: ligne15: `done'

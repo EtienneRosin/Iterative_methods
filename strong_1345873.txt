@@ -1,0 +1,12 @@
+ Data for JOB [46631,1] offset 0 Total slots allocated 2
+
+ ========================   JOB MAP   ========================
+
+ Data for node: node032	Num slots: 2	Max slots: 0	Num procs: 2
+ 	Process OMPI jobid: [46631,1] App: 0 Process rank: 0 Bound: socket 1[core 0[hwt 0]]:[][B/.]
+ 	Process OMPI jobid: [46631,1] App: 0 Process rank: 1 Bound: socket 1[core 1[hwt 0]]:[][./B]
+
+ =============================================================
+Converged after 150054 iterations, last residual : 3.93791e-07
+Last error :  1.01993e-05
+Total execution time: 459.333 seconds

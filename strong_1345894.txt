@@ -1,0 +1,53 @@
+ Data for JOB [34491,1] offset 0 Total slots allocated 40
+
+ ========================   JOB MAP   ========================
+
+ Data for node: node026	Num slots: 40	Max slots: 0	Num procs: 40
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 0 Bound: socket 0[core 0[hwt 0]]:[B/././././././././././././././././././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 1 Bound: socket 0[core 1[hwt 0]]:[./B/./././././././././././././././././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 2 Bound: socket 0[core 2[hwt 0]]:[././B/././././././././././././././././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 3 Bound: socket 0[core 3[hwt 0]]:[./././B/./././././././././././././././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 4 Bound: socket 0[core 4[hwt 0]]:[././././B/././././././././././././././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 5 Bound: socket 0[core 5[hwt 0]]:[./././././B/./././././././././././././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 6 Bound: socket 0[core 6[hwt 0]]:[././././././B/././././././././././././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 7 Bound: socket 0[core 7[hwt 0]]:[./././././././B/./././././././././././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 8 Bound: socket 0[core 8[hwt 0]]:[././././././././B/././././././././././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 9 Bound: socket 0[core 9[hwt 0]]:[./././././././././B/./././././././././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 10 Bound: socket 0[core 10[hwt 0]]:[././././././././././B/././././././././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 11 Bound: socket 0[core 11[hwt 0]]:[./././././././././././B/./././././././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 12 Bound: socket 0[core 12[hwt 0]]:[././././././././././././B/././././././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 13 Bound: socket 0[core 13[hwt 0]]:[./././././././././././././B/./././././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 14 Bound: socket 0[core 14[hwt 0]]:[././././././././././././././B/././././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 15 Bound: socket 0[core 15[hwt 0]]:[./././././././././././././././B/./././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 16 Bound: socket 0[core 16[hwt 0]]:[././././././././././././././././B/././.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 17 Bound: socket 0[core 17[hwt 0]]:[./././././././././././././././././B/./.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 18 Bound: socket 0[core 18[hwt 0]]:[././././././././././././././././././B/.][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 19 Bound: socket 0[core 19[hwt 0]]:[./././././././././././././././././././B][./././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 20 Bound: socket 1[core 20[hwt 0]]:[./././././././././././././././././././.][B/././././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 21 Bound: socket 1[core 21[hwt 0]]:[./././././././././././././././././././.][./B/./././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 22 Bound: socket 1[core 22[hwt 0]]:[./././././././././././././././././././.][././B/././././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 23 Bound: socket 1[core 23[hwt 0]]:[./././././././././././././././././././.][./././B/./././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 24 Bound: socket 1[core 24[hwt 0]]:[./././././././././././././././././././.][././././B/././././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 25 Bound: socket 1[core 25[hwt 0]]:[./././././././././././././././././././.][./././././B/./././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 26 Bound: socket 1[core 26[hwt 0]]:[./././././././././././././././././././.][././././././B/././././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 27 Bound: socket 1[core 27[hwt 0]]:[./././././././././././././././././././.][./././././././B/./././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 28 Bound: socket 1[core 28[hwt 0]]:[./././././././././././././././././././.][././././././././B/././././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 29 Bound: socket 1[core 29[hwt 0]]:[./././././././././././././././././././.][./././././././././B/./././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 30 Bound: socket 1[core 30[hwt 0]]:[./././././././././././././././././././.][././././././././././B/././././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 31 Bound: socket 1[core 31[hwt 0]]:[./././././././././././././././././././.][./././././././././././B/./././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 32 Bound: socket 1[core 32[hwt 0]]:[./././././././././././././././././././.][././././././././././././B/././././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 33 Bound: socket 1[core 33[hwt 0]]:[./././././././././././././././././././.][./././././././././././././B/./././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 34 Bound: socket 1[core 34[hwt 0]]:[./././././././././././././././././././.][././././././././././././././B/././././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 35 Bound: socket 1[core 35[hwt 0]]:[./././././././././././././././././././.][./././././././././././././././B/./././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 36 Bound: socket 1[core 36[hwt 0]]:[./././././././././././././././././././.][././././././././././././././././B/././.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 37 Bound: socket 1[core 37[hwt 0]]:[./././././././././././././././././././.][./././././././././././././././././B/./.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 38 Bound: socket 1[core 38[hwt 0]]:[./././././././././././././././././././.][././././././././././././././././././B/.]
+ 	Process OMPI jobid: [34491,1] App: 0 Process rank: 39 Bound: socket 1[core 39[hwt 0]]:[./././././././././././././././././././.][./././././././././././././././././././B]
+
+ =============================================================
+Converged after 150054 iterations, last residual : 3.93791e-07
+Last error :  1.01993e-05
+Total execution time: 17.4537 seconds
+Converged after 76439 iterations, last residual : 3.93775e-07
+Last error :  1.02008e-05
+Total execution time: 9.89327 seconds

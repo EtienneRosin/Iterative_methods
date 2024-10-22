@@ -1,0 +1,8 @@
+ Data for JOB [47089,1] offset 0 Total slots allocated 1
+
+ ========================   JOB MAP   ========================
+
+ Data for node: node032	Num slots: 1	Max slots: 0	Num procs: 1
+ 	Process OMPI jobid: [47089,1] App: 0 Process rank: 0 Bound: UNBOUND
+
+ =============================================================

@@ -1,0 +1,23 @@
+ Data for JOB [18434,1] offset 0 Total slots allocated 10
+
+ ========================   JOB MAP   ========================
+
+ Data for node: node024	Num slots: 10	Max slots: 0	Num procs: 10
+ 	Process OMPI jobid: [18434,1] App: 0 Process rank: 0 Bound: socket 0[core 0[hwt 0]]:[B/./././.][././././.]
+ 	Process OMPI jobid: [18434,1] App: 0 Process rank: 1 Bound: socket 0[core 1[hwt 0]]:[./B/././.][././././.]
+ 	Process OMPI jobid: [18434,1] App: 0 Process rank: 2 Bound: socket 0[core 2[hwt 0]]:[././B/./.][././././.]
+ 	Process OMPI jobid: [18434,1] App: 0 Process rank: 3 Bound: socket 0[core 3[hwt 0]]:[./././B/.][././././.]
+ 	Process OMPI jobid: [18434,1] App: 0 Process rank: 4 Bound: socket 0[core 4[hwt 0]]:[././././B][././././.]
+ 	Process OMPI jobid: [18434,1] App: 0 Process rank: 5 Bound: socket 1[core 5[hwt 0]]:[././././.][B/./././.]
+ 	Process OMPI jobid: [18434,1] App: 0 Process rank: 6 Bound: socket 1[core 6[hwt 0]]:[././././.][./B/././.]
+ 	Process OMPI jobid: [18434,1] App: 0 Process rank: 7 Bound: socket 1[core 7[hwt 0]]:[././././.][././B/./.]
+ 	Process OMPI jobid: [18434,1] App: 0 Process rank: 8 Bound: socket 1[core 8[hwt 0]]:[././././.][./././B/.]
+ 	Process OMPI jobid: [18434,1] App: 0 Process rank: 9 Bound: socket 1[core 9[hwt 0]]:[././././.][././././B]
+
+ =============================================================
+No convergence, last residual : 39.0699
+Last error :  0.494826
+Total execution time: 1.70478 seconds
+No convergence, last residual : 54.7814
+Last error :  0.490601
+Total execution time: 2.08788 seconds

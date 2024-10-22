@@ -1,0 +1,17 @@
+ Data for JOB [45197,1] offset 0 Total slots allocated 4
+
+ ========================   JOB MAP   ========================
+
+ Data for node: node032	Num slots: 4	Max slots: 0	Num procs: 4
+ 	Process OMPI jobid: [45197,1] App: 0 Process rank: 0 Bound: socket 1[core 0[hwt 0]]:[][B/././.]
+ 	Process OMPI jobid: [45197,1] App: 0 Process rank: 1 Bound: socket 1[core 1[hwt 0]]:[][./B/./.]
+ 	Process OMPI jobid: [45197,1] App: 0 Process rank: 2 Bound: socket 1[core 2[hwt 0]]:[][././B/.]
+ 	Process OMPI jobid: [45197,1] App: 0 Process rank: 3 Bound: socket 1[core 3[hwt 0]]:[][./././B]
+
+ =============================================================
+No convergence, last residual : 37.4369
+Last error :  0.474144
+Total execution time: 6.84244 seconds
+No convergence, last residual : 50.3109
+Last error :  0.450564
+Total execution time: 8.41043 seconds

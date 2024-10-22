@@ -1,0 +1,19 @@
+ Data for JOB [12340,1] offset 0 Total slots allocated 6
+
+ ========================   JOB MAP   ========================
+
+ Data for node: node024	Num slots: 6	Max slots: 0	Num procs: 6
+ 	Process OMPI jobid: [12340,1] App: 0 Process rank: 0 Bound: socket 0[core 0[hwt 0]]:[B/./.][././.]
+ 	Process OMPI jobid: [12340,1] App: 0 Process rank: 1 Bound: socket 0[core 1[hwt 0]]:[./B/.][././.]
+ 	Process OMPI jobid: [12340,1] App: 0 Process rank: 2 Bound: socket 0[core 2[hwt 0]]:[././B][././.]
+ 	Process OMPI jobid: [12340,1] App: 0 Process rank: 3 Bound: socket 1[core 3[hwt 0]]:[././.][B/./.]
+ 	Process OMPI jobid: [12340,1] App: 0 Process rank: 4 Bound: socket 1[core 4[hwt 0]]:[././.][./B/.]
+ 	Process OMPI jobid: [12340,1] App: 0 Process rank: 5 Bound: socket 1[core 5[hwt 0]]:[././.][././B]
+
+ =============================================================
+Converged after 150054 iterations, last residual : 3.93791e-07
+Last error :  1.01993e-05
+Total execution time: 39.3424 seconds
+Converged after 76439 iterations, last residual : 3.93775e-07
+Last error :  1.02008e-05
+Total execution time: 25.4514 seconds
