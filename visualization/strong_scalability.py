@@ -55,7 +55,7 @@ ax.plot(lst_p, S(gs_T_seq, gs_T_para), label = "Gauss-Seidel", **line_props, c =
 
 ax.set(xlabel = r"$p$", ylabel = "$S$")
 ax.legend()
-fig.savefig(fname="Figures/strong_scalability.pdf")
+# fig.savefig(fname="Figures/strong_scalability_on_my_mac.pdf")
 plt.show()
 
 # # fname = "strong_scalability_measurement.csv"

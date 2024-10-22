@@ -15,25 +15,23 @@ plt.style.use('science')
 
 
 
-file_props = dict(dtype = float, delimiter = ';', names=True)
+file_props = dict(dtype = float, delimiter = ',', names=True)
 
 folder: str = "study_cases/3_weak_scalability"
 
-gs_file_name = f"{folder}/gauss_seidel_weak_scalability_on_mac.csv"
-jac_file_name = f"{folder}/jacobi_weak_scalability_on_mac.csv"
+file_name = f"chol_meas/weak_scalability_measurements.csv"
+data = np.genfromtxt(fname = file_name, **file_props)
+# jac_data = np.genfromtxt(fname = jac_file_name, **file_props)
 
-gs_data = np.genfromtxt(fname = gs_file_name, **file_props)
-jac_data = np.genfromtxt(fname = jac_file_name, **file_props)
+# time_jacobi,time_gauss_seidel
+gs_T_seq = data['time_gauss_seidel'][0]
+gs_T_para = data['time_gauss_seidel']
 
-
-gs_T_seq = gs_data['Time'][0]
-gs_T_para = gs_data['Time']
-
-jac_T_seq = jac_data['Time'][0]
-jac_T_para = jac_data['Time']
+jac_T_seq = data['time_jacobi'][0]
+jac_T_para = data['time_jacobi']
 
 
-lst_p = jac_data['Processes']
+lst_p = data['Processes']
 
 
 
@@ -54,10 +52,13 @@ fig = plt.figure()
 ax = fig.add_subplot()
 
 line_props = dict(linewidth = 1, linestyle = "--", marker = "o", markersize = 3)
+scatter_props = dict(marker = "o", s = 3)
 
 ax.plot(lst_p, np.ones_like(lst_p), label = r"$E_\text{ideal}$", linestyle = ":", c = "blue")
 ax.plot(lst_p, E(jac_T_seq, jac_T_para), label = "Jacobi", **line_props, c = "green")
+# ax.scatter(lst_p, E(jac_T_seq, jac_T_para), label = "Jacobi", **scatter_props, c = "green")
 ax.plot(lst_p, E(gs_T_seq, gs_T_para), label = "Gauss-Seidel", **line_props, c = "red")
+# ax.scatter(lst_p, E(gs_T_seq, gs_T_para), label = "Gauss-Seidel", **scatter_props, c = "red")
 
 
 
@@ -65,5 +66,5 @@ ax.plot(lst_p, E(gs_T_seq, gs_T_para), label = "Gauss-Seidel", **line_props, c =
 
 ax.set(xlabel = r"$p$", ylabel = "$E$")
 ax.legend()
-# fig.savefig(fname="Figures/weak_scalability_on_my_mac.pdf")
+fig.savefig(fname="Figures/weak_scalability_on_cholesky.pdf")
 plt.show()
