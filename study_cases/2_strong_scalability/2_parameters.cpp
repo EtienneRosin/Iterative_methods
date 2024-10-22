@@ -40,8 +40,8 @@ double y_max = b;
 
 int max_iterations = 2000000;
 double epsilon = 1e-8;
-int Nx = 400;
-int Ny = 400;
+int Nx = 200;
+int Ny = 200;
 // int n_min = 50;
 // int n_max = 200;
 // double epsilon_min = 1e-8;
